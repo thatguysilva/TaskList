@@ -1,0 +1,12 @@
+<!-- src/app/todo/todo.component.html -->
+<div>
+    <input [(ngModel)]="newTodoDescription" placeholder="New to-do" />
+    <button (click)="addTodo()">Add</button>
+  </div>
+  <ul>
+    <li *ngFor="let todo of todos; index as i">
+      <input type="checkbox" [(ngModel)]="todo.done" (change)="toggleTodoDone(i)" />
+      <span [class.done]="todo.done">{{ todo.description }}</span>
+      <button (click)="deleteTodo(i)">Delete</button>
+    </li>
+  </ul>  
